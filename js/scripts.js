@@ -37,7 +37,7 @@ $(document).ready(function () {
             scrollTop: target.offset().top,
           },
           1000,
-          "easeInOutExpo"
+          "easeInOutQuart"
         );
         return false;
       }
