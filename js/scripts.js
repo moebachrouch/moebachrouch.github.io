@@ -32,6 +32,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 $(document).ready(function () {
+  // Form validation on submit
   $("#submit-button").click(function (evt) {
     let name = $("#name").val();
     let email = $("#email").val();
