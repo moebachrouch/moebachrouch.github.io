@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 $(document).ready(function () {
+  // JQuery ease-in effect for the navbar
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     if (
       location.pathname.replace(/^\//, "") ==
