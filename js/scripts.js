@@ -8,14 +8,6 @@
 //
 
 window.addEventListener("DOMContentLoaded", (event) => {
-  // Activate Bootstrap scrollspy on the main nav element
-  const sideNav = document.body.querySelector("#sideNav");
-  if (sideNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#sideNav",
-      offset: 74,
-    });
-  }
 
   // Collapse responsive navbar when toggler is visible
   const navbarToggler = document.body.querySelector(".navbar-toggler");
@@ -32,6 +24,30 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 $(document).ready(function () {
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - 48)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
+
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#sideNav',
+    offset: 80
+  });
+
   $("#submit-button").click(function (evt) {
     let name = $("#name").val();
     let email = $("#email").val();
