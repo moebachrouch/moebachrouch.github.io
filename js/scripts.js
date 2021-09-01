@@ -23,6 +23,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 $(document).ready(function () {
+  // Force page to scroll to top on page (re)load
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
   // JQuery ease-in effect for the navbar
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     if (
