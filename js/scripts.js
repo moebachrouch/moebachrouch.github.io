@@ -7,6 +7,15 @@
 // Scripts
 //
 
+// Force page to scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = "manual";
+} else {
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+}
+
 window.addEventListener("DOMContentLoaded", (event) => {
   // Collapse responsive navbar when toggler is visible
   const navbarToggler = document.body.querySelector(".navbar-toggler");
@@ -23,9 +32,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 $(document).ready(function () {
-  // Force page to scroll to top on page load
-  $(this).scrollTop(0);
-
   // JQuery ease-in effect for the navbar
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     if (
